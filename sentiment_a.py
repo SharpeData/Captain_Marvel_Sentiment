@@ -1,10 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Mar  7 08:17:36 2019
-
-@author: KJee
-"""
-
 import pandas as pd 
 import datetime as dt 
 from twitterscraper import query_tweets
