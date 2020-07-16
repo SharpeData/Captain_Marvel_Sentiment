@@ -17,8 +17,7 @@ def detector(x):
         
 analyzer = SentimentIntensityAnalyzer()
 
-#Captain Marvel Queries 
-
+"""
 begin_date = dt.date(2019,3,3)
 end_date = dt.date(2019,3,7)
 
@@ -39,8 +38,9 @@ df_after['lang'] = df_after['text'].apply(lambda x: detector(x))
 df_after = df_after[df_after['lang'] == 'en'] 
 
 #save files
-df_before.to_csv('cm_tweets_before_clean.csv')
-df_after.to_csv('cm_tweets_after_clean.csv')
+#df_before.to_csv('cm_tweets_before_clean.csv')
+#df_after.to_csv('cm_tweets_after_clean.csv')
+"""
 
 df_before = pd.read_csv('cm_tweets_before_clean.csv')
 df_after = pd.read_csv('cm_tweets_after_clean.csv')
@@ -58,6 +58,7 @@ df_after.drop_duplicates(subset = 'text',inplace = True)
 df_after['timestamp'] = df_after['timestamp'].apply(lambda x: dt.datetime.strptime(x,'%Y-%m-%d %H:%M:%S'))
 df_after = df_after[df_after['timestamp'] > dt.datetime(2019,3,8,0,0,0)]
 
+
 df_before['compound'].hist()
 df_before['compound'].mean()
 df_before['compound'].median()
@@ -65,6 +66,7 @@ df_before['compound'].median()
 df_after['compound'].hist()
 df_after['compound'].mean()
 df_after['compound'].median()
+
 
 before_ratio = df_before[df_before['compound'] > 0].shape[0] / df_before[df_before['compound'] < 0].shape[0]
 after_ratio = df_after[df_after['compound'] > 0].shape[0] / df_after[df_after['compound'] < 0].shape[0]
@@ -75,8 +77,8 @@ df_after_nz = df_after[df_after['compound'] != 0]
 df_before_nz['compound'].sample(5000).hist()
 df_after_nz['compound'].sample(5000).hist()
 
-#Avengers Inifnity War Queries
-
+################################################################################### 
+"""
 begin_date_a = dt.date(2018,4,23)
 end_date_a = dt.date(2018,4,27)
 
@@ -98,7 +100,7 @@ a_df_after = a_df_after[a_df_after['lang'] == 'en']
 #save files
 #a_df_before.to_csv('avengers_tweets_before_clean.csv')
 #a_df_after.to_csv('avengers_tweets_after_clean.csv')
-
+"""
 
 a_df_before = pd.read_csv('avengers_tweets_before_clean.csv', engine = 'python')
 a_df_after = pd.read_csv('avengers_tweets_after_clean.csv')
