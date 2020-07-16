@@ -1,4 +1,4 @@
-#PLS NO ERRORS. HI DOG
+#PLS NO ERRORS
 
 import pandas as pd 
 import datetime as dt 
