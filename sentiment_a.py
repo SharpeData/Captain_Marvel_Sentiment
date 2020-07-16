@@ -1,4 +1,4 @@
-#PLS NO ERRORS
+################################################################### PLS
 
 import pandas as pd 
 import datetime as dt 
@@ -16,6 +16,8 @@ def detector(x):
         None 
         
 analyzer = SentimentIntensityAnalyzer()
+
+################################################################### First Set
 
 """
 begin_date = dt.date(2019,3,3)
@@ -44,6 +46,7 @@ df_after = df_after[df_after['lang'] == 'en']
 
 df_before = pd.read_csv('cm_tweets_before_clean.csv')
 df_after = pd.read_csv('cm_tweets_after_clean.csv')
+
 #get sentiment scores
 sentiment_before = df_before['text'].apply(lambda x: analyzer.polarity_scores(x))
 sentiment_after = df_after['text'].apply(lambda x: analyzer.polarity_scores(x))
@@ -52,7 +55,7 @@ sentiment_after = df_after['text'].apply(lambda x: analyzer.polarity_scores(x))
 df_before = pd.concat([df_before, sentiment_before.apply(pd.Series)],1)
 df_after = pd.concat([df_after, sentiment_after.apply(pd.Series)],1)
 
-#removed duplicates because of sponsored tweets? 
+#removed duplicates because of sponsored tweets
 df_before.drop_duplicates(subset = 'text',inplace = True)
 df_after.drop_duplicates(subset = 'text',inplace = True)
 df_after['timestamp'] = df_after['timestamp'].apply(lambda x: dt.datetime.strptime(x,'%Y-%m-%d %H:%M:%S'))
@@ -77,7 +80,8 @@ df_after_nz = df_after[df_after['compound'] != 0]
 df_before_nz['compound'].sample(5000).hist()
 df_after_nz['compound'].sample(5000).hist()
 
-################################################################################### 
+################################################################### Second Set 
+
 """
 begin_date_a = dt.date(2018,4,23)
 end_date_a = dt.date(2018,4,27)
@@ -116,9 +120,10 @@ a_sentiment_after = a_df_after['text'].apply(lambda x: analyzer.polarity_scores(
 a_df_before = pd.concat([a_df_before, a_sentiment_before.apply(pd.Series)],1)
 a_df_after = pd.concat([a_df_after, a_sentiment_after.apply(pd.Series)],1)
 
-#removed duplicates because of sponsored tweets? 
+#removed duplicates because of sponsored tweets
 a_df_before.drop_duplicates(subset = 'text',inplace = True)
 a_df_after.drop_duplicates(subset = 'text',inplace = True)
+
 #df_after['timestamp'] = df_after['timestamp'].apply(lambda x: dt.datetime.strptime(x,'%Y-%m-%d %H:%M:%S'))
 #df_after = df_after[df_after['timestamp'] > dt.datetime(2019,3,8,0,0,0)]
 
@@ -143,7 +148,7 @@ a_df_after_nz['compound'].sample(5000).hist()
 
 
 
-############################################################################### Comparison 
+################################################################### Comparison
 
 a_df_before_nz['compound'].sample(10000).hist()
 a_df_after_nz['compound'].sample(10000).hist()
