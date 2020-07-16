@@ -3,5 +3,5 @@
         "/K",
         "C:\\Users\\Jason\\anaconda3\\Scripts\\activate.bat C:\\Users\\Jason\\anaconda3\\ & conda activate MarvelSentiment"
     ],
-    "window.autoDetectColorScheme": true
+    "python.pythonPath": "C:\\Users\\Jason\\anaconda3\\envs\\MarvelSentiment\\python.exe"
 }
