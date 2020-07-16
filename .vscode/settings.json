@@ -1,0 +1,7 @@
+{
+    "terminal.integrated.shellArgs.windows": [
+        "/K",
+        "C:\\Users\\Jason\\anaconda3\\Scripts\\activate.bat C:\\Users\\Jason\\anaconda3\\ & conda activate MarvelSentiment"
+    ],
+    "window.autoDetectColorScheme": true
+}
